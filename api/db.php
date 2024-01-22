@@ -118,7 +118,7 @@ class DB
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 }
-
+$Bottom = new DB('bottom');
 //資料表
 
 //判斷是否瀏覽過
