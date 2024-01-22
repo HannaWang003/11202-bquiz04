@@ -1,5 +1,4 @@
 // JavaScript Document
-function lof(x)
-{
-	location.href=x
+function lof(x) {
+  location.href = x;
 }
