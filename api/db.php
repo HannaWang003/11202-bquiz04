@@ -119,6 +119,7 @@ class DB
     }
 }
 $Bottom = new DB('bottom');
+$Mem = new DB('mem');
 //資料表
 
 //判斷是否瀏覽過
