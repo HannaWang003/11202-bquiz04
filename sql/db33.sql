@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-01-31 06:10:51
+-- 產生時間： 2024-01-31 08:41:49
 -- 伺服器版本： 10.4.28-MariaDB
 -- PHP 版本： 8.2.4
 
@@ -63,6 +63,26 @@ INSERT INTO `bottom` (`id`, `bottom`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 資料表結構 `goods`
+--
+
+CREATE TABLE `goods` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `no` text NOT NULL,
+  `name` text NOT NULL,
+  `price` int(10) NOT NULL,
+  `spec` text NOT NULL,
+  `stock` int(10) NOT NULL,
+  `img` text NOT NULL,
+  `intro` text NOT NULL,
+  `big` int(10) NOT NULL,
+  `mid` int(10) NOT NULL,
+  `sh` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- 資料表結構 `mem`
 --
 
@@ -97,6 +117,25 @@ CREATE TABLE `type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- 傾印資料表的資料 `type`
+--
+
+INSERT INTO `type` (`id`, `name`, `big_id`) VALUES
+(1, '流行皮件', 0),
+(2, '流行鞋區', 0),
+(3, '流行飾品', 0),
+(4, '背包', 0),
+(5, '男用皮件', 1),
+(6, '女用皮件', 1),
+(7, '少女鞋區', 2),
+(8, '紳士流行鞋區', 2),
+(9, '時尚手錶', 3),
+(10, '時尚珠寶', 3),
+(11, '背包', 4),
+(12, '電腦3', 0),
+(13, 'RAM', 12);
+
+--
 -- 已傾印資料表的索引
 --
 
@@ -110,6 +149,12 @@ ALTER TABLE `admin`
 -- 資料表索引 `bottom`
 --
 ALTER TABLE `bottom`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 資料表索引 `goods`
+--
+ALTER TABLE `goods`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -141,6 +186,12 @@ ALTER TABLE `bottom`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- 使用資料表自動遞增(AUTO_INCREMENT) `goods`
+--
+ALTER TABLE `goods`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- 使用資料表自動遞增(AUTO_INCREMENT) `mem`
 --
 ALTER TABLE `mem`
@@ -150,7 +201,7 @@ ALTER TABLE `mem`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `type`
 --
 ALTER TABLE `type`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
