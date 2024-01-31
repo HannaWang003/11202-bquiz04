@@ -8,7 +8,7 @@
         </tr>
         <tr>
             <td class="tt ct">密碼</td>
-            <td class="pp"><input type="text" name="pw" id=""></td>
+            <td class="pp"><input type="password" name="pw" id=""></td>
         </tr>
         <tr>
             <td class="tt ct">權限</td>

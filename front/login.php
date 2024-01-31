@@ -10,7 +10,7 @@
     </tr>
     <tr>
         <td class="tt">密碼</td>
-        <td class="pp"><input type="text" name="pw" id="pw"></td>
+        <td class="pp"><input type="password" name="pw" id="pw"></td>
     </tr>
     <tr>
         <td class="tt">驗證碼</td>
