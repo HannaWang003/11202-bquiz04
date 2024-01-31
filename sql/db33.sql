@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-01-24 03:13:26
+-- 產生時間： 2024-01-31 06:10:51
 -- 伺服器版本： 10.4.28-MariaDB
 -- PHP 版本： 8.2.4
 
@@ -39,7 +39,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `acc`, `pw`, `pr`) VALUES
-(1, 'admin', '1234', '');
+(1, 'admin', '1234', 'a:5:{i:0;s:1:\"1\";i:1;s:1:\"2\";i:2;s:1:\"3\";i:3;s:1:\"4\";i:4;s:1:\"5\";}'),
+(7, 'admin01', '123456', 'a:3:{i:0;s:1:\"1\";i:1;s:1:\"3\";i:2;s:1:\"5\";}');
 
 -- --------------------------------------------------------
 
@@ -81,7 +82,19 @@ CREATE TABLE `mem` (
 --
 
 INSERT INTO `mem` (`id`, `name`, `acc`, `pw`, `tel`, `addr`, `email`, `regdate`) VALUES
-(1, 'adf', 'mem01', 'mem01', 'adsfa', 'adfadf', 'adfadf', '2024-01-22');
+(2, 'abc123', 'abc', '123', '123456789', 'adfa fewar', 'asdfad1212a', '2024-01-31');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `type`
+--
+
+CREATE TABLE `type` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` text NOT NULL,
+  `big_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 已傾印資料表的索引
@@ -106,6 +119,12 @@ ALTER TABLE `mem`
   ADD PRIMARY KEY (`id`);
 
 --
+-- 資料表索引 `type`
+--
+ALTER TABLE `type`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
 --
 
@@ -113,7 +132,7 @@ ALTER TABLE `mem`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `bottom`
@@ -125,7 +144,13 @@ ALTER TABLE `bottom`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `mem`
 --
 ALTER TABLE `mem`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `type`
+--
+ALTER TABLE `type`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
