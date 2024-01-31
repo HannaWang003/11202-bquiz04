@@ -1,7 +1,8 @@
 <?php
 include_once "./api/db.php";
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0057)?do=admin -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -10,6 +11,7 @@ include_once "./api/db.php";
 
     <title>┌精品電子商務網站」</title>
     <link href="./css/css.css" rel="stylesheet" type="text/css">
+    <script src="./js/jquery-3.4.1.min.js"></script>
     <script src="./js/js.js"></script>
 </head>
 
@@ -47,7 +49,6 @@ include_once "./api/db.php";
         <div id="bottom" style="line-height:70px; color:#FFF; background:url(icon/bot.png);" class="ct">
             <?= $Bottom->find(1)['bottom'] ?></div>
     </div>
-    <script src="./js/jquery-3.4.1.min.js"></script>
 </body>
 
 </html>

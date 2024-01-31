@@ -13,34 +13,24 @@ $rows = $Admin->all();
     foreach ($rows as $row) {
 
     ?>
-    <tr>
-        <td class="ct pp"><?= $row['acc'] ?></td>
-        <td class="ct pp"><?= str_repeat("*", strlen($row['pw'])) ?></td>
-        <td class="ct pp">
-            <?php
+        <tr>
+            <td class="ct pp"><?= $row['acc'] ?></td>
+            <td class="ct pp"><?= str_repeat("*", strlen($row['pw'])) ?></td>
+            <td class="ct pp">
+                <?php
                 if ($row['acc'] == "admin") {
                     echo "此帳號為最高權限";
                 } else {
                 ?>
-            <button onclick="location.href='?do=edit_admin&id=<?= $row['id'] ?>'">修改</button>
-            <button onclick="del('admin',<?=$row['id']?>)">刪除</button>
-            <?php
+                    <button onclick="location.href='?do=edit_admin&id=<?= $row['id'] ?>'">修改</button>
+                    <button onclick="del('admin',<?= $row['id'] ?>)">刪除</button>
+                <?php
                 }
                 ?>
-        </td>
-    </tr>
+            </td>
+        </tr>
     <?php
     }
     ?>
 </table>
 <div class="ct"><button onclick="location.href='index.php'">返回</button></div>
-<script>
-function del(table, id) {
-    $.post("./api/del.php", {
-        table,
-        id
-    }, () => {
-        location.reload();
-    })
-}
-</script>
