@@ -19,24 +19,36 @@
                 onclick="del('type',<?= $big['id'] ?>)">刪除</button></td>
     </tr>
     <?php
-    $mids=$Type->all(['big_id'=>$big['id']]);
-    foreach($mids as $mid){
+        $mids = $Type->all(['big_id' => $big['id']]);
+        foreach ($mids as $mid) {
         ?>
     <tr class="pp ct">
-        <td><?=$mid['name']?></td>
-        <td class="ct"><button onclick="edit(this,<?=$mid['id']?>)">修改</button>
-            <button onclick="del('type',<?=$mid['id']?>)">刪除</button>
+        <td><?= $mid['name'] ?></td>
+        <td class="ct"><button onclick="edit(this,<?= $mid['id'] ?>)">修改</button>
+            <button onclick="del('type',<?= $mid['id'] ?>)">刪除</button>
         </td>
     </tr>
 
 
     <?php
-}
+        }
     }
     ?>
 </table>
 <script>
 getTypes(0)
+
+function edit(dom, id) {
+    let name = prompt("請輸入您要修改的分類名稱:", `${$(dom).parent().prev().text()}`)
+    if (name != null) {
+        $.post("./api/save_type.php", {
+            name,
+            id
+        }, () => {
+            $(dom).parent().prev().text(name)
+        })
+    }
+}
 
 function getTypes(big_id) {
     $.get('./api/get_types.php', {
