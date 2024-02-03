@@ -13,6 +13,7 @@ echo "0";
 }
 else{
     echo "2";
+    $_SESSION['acc']=$_POST['acc'];
 }
 
 

@@ -16,7 +16,9 @@
         </td>
     </tr>
 </table>
-<div class="ct"><input type="submit" value="確認"></div>
+<div class="ct">
+    <input type="submit" value="確認">
+</div>
 </form>
 <script>
     randnum();
@@ -46,11 +48,11 @@ switch(res){
         randnum();
         break;
     case "1":
-        alert("驗證碼錯誤");
+        alert("對不起，您輸入的驗證碼有誤，請您重新登入");
     randnum();
         break;
         case "2":
-        alert("登入");
+        location.href="back.php"
         break;
 }
     }

@@ -29,6 +29,7 @@ foreach($accs as $acc){
 
     </tbody>
 </table>
+<div class="ct"><input type="button" value="返回" onclick="location.href='index.php'"></div>
 <script>
     $("#addAdmin").on("click",function(){
         $.ajax({

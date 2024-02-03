@@ -1,5 +1,8 @@
 <?php
 include_once "./api/db.php";
+if(!isset($_SESSION['acc'])){
+	header("location:index.php");
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0057)?do=admin -->
@@ -28,7 +31,7 @@ include_once "./api/db.php";
             	            	<a href="?do=mem">會員管理</a>
             	            	<a href="?do=bot">頁尾版權管理</a>
             	            	<a href="?do=news">最新消息管理</a>
-            	        	<a href="?do=logout" style="color:#f00;">登出</a>
+            	        	<a onclick="logout('acc')" style="color:#f00;cursor:pointer">登出</a>
                     </div>
                     </div>
         <div id="right">
