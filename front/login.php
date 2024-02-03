@@ -1,5 +1,5 @@
 <h2>第一次購物</h2>
-<div><input type="button" value="按此註冊"></div>
+<div><input type="button" onclick="reg()" value="按此註冊"></div>
 <h2>會員登入</h2>
 <form id="chkacc">
 <table class="all">
@@ -62,5 +62,9 @@ switch(res){
     }
 })
     })
-
+function reg(){
+    $.get("",function(res){
+$('body').load("?do=reg");
+    })
+}
 </script>
