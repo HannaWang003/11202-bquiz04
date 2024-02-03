@@ -12,7 +12,7 @@ $accs = $Admin->all();
     <tbody id="admin">
         <?php
 foreach($accs as $acc){
-    $opr = "<input type='button' value='修改' class='editAdmin' data-id='{$acc['id']}'><input type='button' value='刪除'>";
+    $opr = "<input type='button' value='修改' class='editAdmin' data-id='{$acc['id']}'><input type='button' value='刪除' class='delAdmin' data-table='Admin'  data-id='{$acc['id']}'>";
     $pw = str_repeat("*",strlen($acc['pw']));
     if($acc['acc']=="admin"){
         $opr = "此帳號為最高權限";
@@ -53,6 +53,20 @@ foreach($accs as $acc){
             success:function(res){
                 $('#right').html(res)
             }
+        })
+    })
+    $(".delAdmin").on('click',function(){
+        $.ajax({
+            type:"post",
+            data:{
+                id:$(this).data('id'),
+                table:$(this).data('table')
+            },
+            url:"./api/del.php",
+            success:function(res){
+$('body').load("?do=admin");
+            }
+
         })
     })
 </script>

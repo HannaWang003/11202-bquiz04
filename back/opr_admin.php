@@ -54,7 +54,7 @@ $('#editAdminForm').submit(function(event){
         processData: false,
         url:"./api/opr_admin.php",
         success:function(res){
-            location.reload();
+            $('body').load("?do=admin")
         }
     })
 })
