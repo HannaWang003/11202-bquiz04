@@ -84,7 +84,16 @@ body
 {
 	background:#EFCA85;
 }
-input[type=text],input[type=password],input[type=submit],button,.button,input[type=reset],input[type=button],select，textarea,input[type=number]
+input[type=submit],input[type=reset]{
+	background:#F3F3F3;
+	border:#EF7429 1px solid;
+	border-radius:3px;
+	padding:5px 8px 5px 8px;
+	text-decoration:none;
+	margin:3px;
+	color:#EF7429;
+}
+input[type=text],input[type=password],button,.button,input[type=button],select，textarea,input[type=number]
 {
 	background:#F3F3F3;
 	border:#CCC 1px solid;
