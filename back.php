@@ -1,6 +1,6 @@
 <?php
 include_once "./api/db.php";
-if(!isset($_SESSION['acc'])){
+if(!isset($_SESSION['admin'])){
 	header("location:index.php");
 }
 ?>
@@ -31,7 +31,7 @@ if(!isset($_SESSION['acc'])){
             	            	<a href="?do=mem">會員管理</a>
             	            	<a href="?do=bot">頁尾版權管理</a>
             	            	<a href="?do=news">最新消息管理</a>
-            	        	<a onclick="logout('acc')" style="color:#f00;cursor:pointer">登出</a>
+            	        	<a onclick="logout('admin')" style="color:#f00;cursor:pointer">登出</a>
                     </div>
                     </div>
         <div id="right">

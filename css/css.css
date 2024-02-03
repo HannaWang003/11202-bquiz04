@@ -119,3 +119,6 @@ div.ww:hover > div.s
 {
 	font-size:12px;
 }
+a{
+	cursor:pointer;
+}

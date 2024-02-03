@@ -53,7 +53,7 @@ include_once "./api/db.php";
                 ?>
                 |
                 <?php
-                if (isset($_SESSION['acc'])) {
+                if (isset($_SESSION['admin'])) {
                 ?>
                     <a href="back.php">回管理頁</a>
                 <?php

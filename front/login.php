@@ -1,3 +1,6 @@
+<h2>第一次購物</h2>
+<div><input type="button" value="按此註冊"></div>
+<h2>會員登入</h2>
 <form id="chkacc">
 <table class="all">
     <tr>
@@ -17,7 +20,7 @@
     </tr>
 </table>
 <div class="ct">
-<input type="hidden" name="table" value="admin">
+    <input type="hidden" name="table" value="mem">
     <input type="submit" value="確認">
 </div>
 </form>
@@ -53,7 +56,7 @@ switch(res){
     randnum();
         break;
         case "2":
-        location.href="back.php"
+        $('body').load("?do=buycart");
         break;
 }
     }
