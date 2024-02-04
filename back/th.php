@@ -24,3 +24,29 @@
         </td>
     </tr>
 </table>
+<script>
+    getbigtype(0)
+    function getbigtype(big_id){
+        $.ajax({
+            type:"GET",
+            dataType:"json",
+            data:{
+                "big_id":0,
+            },
+            url:"./api/get_types.php",
+            success:function(types){
+                let html = '';
+                console.log(types)
+                $.each(types,function(idx,type){
+html+=`
+<option value='${type.id}'>${type.name}</option>
+`
+                })
+                $('#bigs').html(html)
+            },
+            error:function(res){
+console.log(res)
+            }
+        })
+    }
+</script>
