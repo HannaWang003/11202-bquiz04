@@ -2,13 +2,13 @@
 <div class="ct">
     <span>新增大分類</span>
     <input type="text" name="big" id="big">
-    <button>新增</button>
+    <button onclick="addType('big')">新增</button>
 </div>
 <div class="ct">
     <span>新增中分類</span>
     <select name="big" id="bigs"></select>
     <input type="text" name="mid" id="mid">
-    <button>新增</button>
+    <button onclick="addType('mid')">新增</button>
 </div>
 <table class="all">
     <tr>
@@ -46,6 +46,29 @@ html+=`
             },
             error:function(res){
 console.log(res)
+            }
+        })
+    }
+    function addType(type){
+        let name,big_id
+        switch(type){
+            case "big":
+                name = $('#big').val();
+                big_id=0;
+                break;
+            case "mid":
+                name = $('#mid').val();
+                big_id=$('#bigs').val();
+        }
+        $.ajax({
+            type:"post",
+            data:{
+                name,
+                big_id
+            },
+            url:"./api/addType.php",
+            success:function(res){
+                $('body').load("?do=th");
             }
         })
     }
