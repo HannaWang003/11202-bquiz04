@@ -10,20 +10,6 @@
     <input type="text" name="mid" id="mid">
     <button onclick="addType('mid')">新增</button>
 </div>
-<table class="all">
-    <tr>
-        <td class="tt">流行皮件</td>
-        <td class="ct tt">
-            <button>修改</button><button>刪除</button>
-        </td>
-    </tr>
-    <tr>
-        <td class="ct pp">女用皮件</td>
-        <td class="ct pp">
-        <button>修改</button><button>刪除</button>
-        </td>
-    </tr>
-</table>
 <script>
     getbigtype(0)
     function getbigtype(big_id){
@@ -36,7 +22,7 @@
             url:"./api/get_types.php",
             success:function(types){
                 let html = '';
-                console.log(types)
+                // console.log(types)
                 $.each(types,function(idx,type){
 html+=`
 <option value='${type.id}'>${type.name}</option>
@@ -45,7 +31,7 @@ html+=`
                 $('#bigs').html(html)
             },
             error:function(res){
-console.log(res)
+// console.log(res)
             }
         })
     }
@@ -72,4 +58,32 @@ console.log(res)
             }
         })
     }
+</script>
+
+<table class="all">
+    <?php
+$bigs = $Type->all(['big_id'=>0]);
+    foreach($bigs as $big){ 
+
+    ?>
+    <tr>
+        <td class="tt"><?=$big['name']?></td>
+        <td class="ct tt"><button>修改</button><button>刪除</button></td>
+    </tr>
+    <?php
+$mids = $Type->all(['big_id'=>$big['id']]);
+foreach($mids as $mid){
+    ?>
+    <tr>
+        <td class="ct pp"><?=$mid['name']?></td>
+        <td class="ct pp"><button>修改</button><button>刪除</button></td>
+  
+    </tr>
+<?php
+}
+ }
+    ?>
+</table>
+<script>
+
 </script>
