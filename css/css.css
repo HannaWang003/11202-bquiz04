@@ -84,7 +84,7 @@ body
 {
 	background:#EFCA85;
 }
-input[type=submit],input[type=reset],input[type=button]{
+input[type=submit],input[type=reset],input[type=button],button{
 	background:#F3F3F3;
 	border:#EF7429 1px solid;
 	border-radius:3px;
@@ -93,7 +93,7 @@ input[type=submit],input[type=reset],input[type=button]{
 	margin:3px;
 	color:#EF7429;
 }
-input[type=text],input[type=password],button,select，textarea,input[type=number],.button
+input[type=text],input[type=password],select，textarea,input[type=number],.button
 {
 	background:#F3F3F3;
 	border:#CCC 1px solid;
