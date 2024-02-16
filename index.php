@@ -70,15 +70,35 @@ include_once "./api/db.php";
         <div id="left" class="ct">
             <div style="min-height:400px;">
                 <a href="">全部商品</a>
+                <?php
+$bigs=$Type->all(['big_id'=>0]);
+foreach($bigs as $big){
+                ?>
+                <div class="ww">
+                    <a href=""><?=$big['name']?></a>
+                    <div class="s">
+                        <?php
+                if($Type->count(['big_id'=>$big['id']])>0){
+                    $mids=$Type->all(['big_id'=>$big['id']]);
+                    foreach($mids as $mid){
+?>
+                        <a href=""><?=$mid['id']?></a>
+                        <?php
+                        }
+
+                }
+                }
+                ?>
+                    </div>
+                </div>
+                <span>
+                    <div>進站總人數</div>
+                    <div style="color:#f00; font-size:28px;">
+                        00005 </div>
+                </span>
             </div>
-            <span>
-                <div>進站總人數</div>
-                <div style="color:#f00; font-size:28px;">
-                    00005 </div>
-            </span>
-        </div>
-        <div id="right">
-            <?php
+            <div id="right">
+                <?php
             $do = $_GET['do'] ?? "main";
             $file = "./front/{$do}.php";
             if (file_exists($file)) {
@@ -88,7 +108,7 @@ include_once "./api/db.php";
             }
 
             ?>
-
+            </div>
         </div>
         <div id="bottom" style="line-height:70px;background:url(./icon/bot.png); color:#FFF;" class="ct">
             <?= $Bot->find(1)['bot'] ?> </div>
