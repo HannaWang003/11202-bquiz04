@@ -109,3 +109,51 @@ $.ajax({
 })
 }
 </script>
+<h1 class="ct">商品管理</h1>
+<div class="ct"><input type="button" value="新增商品" id="PMadd"></div>
+<table class="all" id="PM">
+    <tr>
+        <th class="ct tt">編號</th>
+        <th class="ct tt">商品名稱</th>
+        <th class="ct tt">庫存量</th>
+        <th class="ct tt">狀態</th>
+        <th class="ct tt">操作</th>
+    </tr>
+    
+</table>
+<script>
+    $('document').ready(function(){
+        let PM = $('#PM');
+        let PMadd = $('#PMadd');
+        // console.log('ok')
+        $.ajax({
+            type:'post',
+            url:'./api/get.php',
+            data:{
+                'table':'Goods',
+            },
+            dataType:'json',
+            success:function(res){
+                // console.log(res);
+                let html='';
+                $.each(res,(key,good)=>{
+                    html+=`
+                    <tr>
+        <td class="pp">${good.no}</td>
+        <td class="pp">${good.name}</td>
+        <td class="pp">${good.stock}</td>
+        <td class="pp">${(good.sh==1)?'上架':'下架'}</td>
+        <td class="pp" style="min-width:120px">
+            <button>修改</button><button>刪除</button><button>上架</button><button>下架</button></td>
+    </tr>
+                    `
+                })
+              PM.append(html);  
+            }
+        })
+//新增商品
+PMadd.on('click',()=>{
+    $('body').load('?do=add_goods');
+})
+    })
+</script>
