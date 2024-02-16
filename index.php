@@ -59,21 +59,21 @@ include_once "./api/db.php";
         <div id="left" class="ct">
             <div style="min-height:400px;">
                 <!-- 放選單用 css裡有設定#left a-->
-                <a>全部商品(<?= $Goods->count(['sh' => 1]) ?>)</a>
+                <a href='?type=0'>全部商品(<?= $Goods->count(['sh' => 1]) ?>)</a>
                 <!-- /放選單用 -->
                 <?php
                 $bigs = $Type->all(['big_id' => 0]);
                 foreach ($bigs as $big) {
                 ?>
                     <div class="ww">
-                        <a href=''><?= $big['name'] ?>(<?= $Goods->count(['big' => $big['id'], 'sh' => 1]) ?>)</a>
+                        <a href='?type=<?= $big['id'] ?>'><?= $big['name'] ?>(<?= $Goods->count(['big' => $big['id'], 'sh' => 1]) ?>)</a>
                         <div class="s">
                             <?php
                             if ($Type->count(['big_id' => $big['id']]) > 0) {
                                 $mids = $Type->all(['big_id' => $big['id']]);
                                 foreach ($mids as $mid) {
                             ?>
-                                    <a href=""><?= $mid['name'] ?>(<?= $Goods->count(['mid' => $mid['id'], 'sh' => 1]) ?>)</a>
+                                    <a href='?type=<?= $mid['id'] ?>'><?= $mid['name'] ?>(<?= $Goods->count(['mid' => $mid['id'], 'sh' => 1]) ?>)</a>
                             <?php
                                 }
                             }
