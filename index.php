@@ -1,7 +1,8 @@
 <?php
 include_once "./api/db.php";
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0039) -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -14,18 +15,18 @@ include_once "./api/db.php";
     <script src="./js/jquery-1.9.1.min.js"></script>
 </head>
 <style>
-    #top {
-        display: flex;
-        justify-content: space-between;
+#top {
+    display: flex;
+    justify-content: space-between;
 
-        a {
-            width: 50%;
-        }
-
-        img {
-            width: 100%;
-        }
+    a {
+        width: 50%;
     }
+
+    img {
+        width: 100%;
+    }
+}
 </style>
 
 <body>
@@ -43,11 +44,11 @@ include_once "./api/db.php";
                 <?php
                 if (isset($_SESSION['mem'])) {
                 ?>
-                    <a onclick="logout('mem')">登出</a>
+                <a onclick="logout('mem')">登出</a>
                 <?php
                 } else {
                 ?>
-                    <a href="?do=login">會員登入</a>
+                <a href="?do=login">會員登入</a>
                 <?php
                 }
                 ?>
@@ -55,11 +56,11 @@ include_once "./api/db.php";
                 <?php
                 if (isset($_SESSION['admin'])) {
                 ?>
-                    <a href="back.php">回管理頁</a>
+                <a href="back.php">回管理頁</a>
                 <?php
                 } else {
                 ?>
-                    <a href="?do=admin">管理登入</a>
+                <a href="?do=admin">管理登入</a>
                 <?php
                 }
                 ?>
@@ -96,32 +97,55 @@ include_once "./api/db.php";
             <?= $Bot->find(1)['bottom'] ?> </div>
     </div>
     <script>
-        $(document).ready(function() {
-            let menu = $('#menu')
+    $(document).ready(function() {
+        let menu = $('#menu')
+        $.ajax({
+            type: 'post',
+            data: {
+                'table': 'Type',
+                'big_id': 0,
+            },
+            dataType: 'json',
+            url: './api/get.php',
+            success: function(bigs) {
+                // console.log(bigs);
+                let html = '';
+                $.each(bigs, (key, big) => {
+                    html += `
+<a data-id='${big.id}'>${big.name}</a>
+`
+                })
+                menu.html(html)
+
+            }
+        })
+        menu.on('mouseenter', 'a', function() {
+            // console.log($(this).data('id'))
+            let nowitem = $(this);
+            let big_id = $(this).data('id');
             $.ajax({
                 type: 'post',
                 data: {
                     'table': 'Type',
-                    'big_id': 0,
+                    big_id,
                 },
                 dataType: 'json',
                 url: './api/get.php',
-                success: function(bigs) {
-                    // console.log(bigs);
+                success: function(mid) {
+                    // console.log(mid)
                     let html = '';
-                    $.each(bigs, (key, big) => {
-                        html += `
-<a data-id='${big.id}'>${big.name}</a>
-`
+                    $.each(mid, function(key, val) {
+                        html += `<a>${val.name}</a>`;
                     })
-                    menu.html(html)
-
+                    nowitem.html(html);
                 }
+
             })
-            menu.on('mouseenter', 'a', function() {
-                console.log(this)
-            })
+
+        }).on('mouseleave', 'a', function() {
+            console.log(this)
         })
+    })
     </script>
 </body>
 
