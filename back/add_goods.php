@@ -51,13 +51,16 @@
 <div class="ct">
     <input type="submit" value="新增">
     <input type="reset" value="重置">
-    <input type="button" value="返回">
+    <input type="button" value="返回" onclick='goback()'>
 </div>
 </form>
 <script>
     let Big = $('#big');
     let Mid = $('#mid');
     let addGoods = $('#addGoods');
+    function goback(){
+        $('body').load('?do=th');
+    }
     function getBig(){
         $.ajax({
             type:'post',
