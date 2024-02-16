@@ -123,8 +123,18 @@ $.ajax({
 </table>
 <script>
     function sh(dom,sh,id){
+        let sw = $(dom).closest('tr').find('.shsw');
+        // console.log(sw);
         $.post('./api/sh.php',{sh,id},()=>{
-            $('body').load('?do=th');
+            switch(sh){
+                case "0":
+                    sw.text('下架');
+                    break;
+                    case "1":
+                    sw.text('上架');
+                    break;
+                    
+            }
         })
     }
     $('document').ready(function(){
@@ -147,7 +157,7 @@ $.ajax({
         <td class="pp">${good.no}</td>
         <td class="pp">${good.name}</td>
         <td class="pp">${good.stock}</td>
-        <td class="pp" class='shsw'>${(good.sh==1)?'上架':'下架'}</td>
+        <td class="pp shsw">${(good.sh==1)?'上架':'下架'}</td>
         <td class="pp" style="min-width:120px">
             <button>修改</button>
             <button onclick='del(this,"Goods",${good.id})'>刪除</button>
