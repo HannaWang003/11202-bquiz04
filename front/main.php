@@ -20,11 +20,53 @@ if ($type == 0) {
 
 ?>
 <h2><?= $nav; ?></h2>
+<style>
+    .item {
+        width: 80%;
+        height: 160px;
+        margin: 5px auto;
+        display: flex;
+    }
 
+    .item .img {
+        width: 33%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #fff;
+    }
+
+    .item .info {
+        width: 65%;
+        display: flex;
+        flex-direction: column;
+
+        div {
+            border: 2px solid #fff;
+            border-left: 0;
+            border-top: 0;
+            flex-grow: 1;
+        }
+
+        div:nth-child(1) {
+            border-top: 2px solid #fff;
+        }
+    }
+</style>
 <?php
 foreach ($goods as $good) {
-    echo $good['name'];
-    echo "<br>";
+?>
+    <div class="item">
+        <div class="img pp"><img src="./img/<?= $good['img'] ?>" style="width:80%;height:130px"></div>
+        <div class="info pp">
+            <div class='ct tt'><?= $good['name'] ?></div>
+            <div>價錢:<?= $good['price'] ?></div>
+            <div>規格:<?= $good['spec'] ?></div>
+            <div>簡介:<?= mb_substr($good['intro'], 0, 25) ?>...</div>
+        </div>
+    </div>
+
+<?php
 }
 
 ?>
