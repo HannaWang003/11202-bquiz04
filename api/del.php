@@ -1,6 +1,5 @@
 <?php
 include_once "db.php";
-$DB=${$_POST['table']};
-$DB->del($_POST['id']);
-
-?>
+// $db = ${ucfirst($_POST['table'])};
+$db = new DB($_POST['table']);
+$db->del($_POST['id']);
