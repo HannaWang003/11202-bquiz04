@@ -45,30 +45,34 @@ $goods = $Goods->find($_GET['id']);
         </tr>
     </table>
     <div class="ct">
+        <input type="hidden" name="id" value="<?= $goods['id'] ?>">
         <input type="submit" value="修改">
         <input type="reset" value="重置">
         <input type="button" value="返回" onclick="location.href='?do=th'">
     </div>
 </form>
 <script>
-    getTypes('big', 0)
-    $('#big').on("change", function() {
-        getTypes('mid', $('#big').val())
-    })
+getTypes('big', 0)
+// console.log($('#big').val(<?= $goods['big'] ?>))
+$('#big').on("change", function() {
+    getTypes('mid', $('#big').val())
+})
 
-    function getTypes(type, big_id) {
-        $.get('./api/get_types.php', {
-            big_id
-        }, (types) => {
-            switch (type) {
-                case 'big':
-                    $('#big').html(types)
-                    getTypes('mid', $('#big').val())
-                    break;
-                case 'mid':
-                    $('#mid').html(types)
-                    break;
-            }
-        })
-    }
+function getTypes(type, big_id) {
+    $.get('./api/get_types.php', {
+        big_id
+    }, (types) => {
+        switch (type) {
+            case 'big':
+                $('#big').html(types)
+                $('#big').val(<?= $goods['big'] ?>)
+                getTypes('mid', $('#big').val())
+                break;
+            case 'mid':
+                $('#mid').html(types)
+                $('#mid').val(<?= $goods['mid'] ?>).
+                break;
+        }
+    })
+}
 </script>
