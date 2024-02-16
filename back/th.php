@@ -88,16 +88,23 @@
         <td>狀態</td>
         <td>操作</td>
     </tr>
-    <tr class="pp">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
-            <button>修改</button>
-            <button>刪除</button>
-            <button>上架</button>
-            <button>下架</button>
-        </td>
-    </tr>
+    <?php
+    $goods = $Goods->all();
+    foreach ($goods as $good) {
+    ?>
+        <tr class="pp">
+            <td><?= $good['no']; ?></td>
+            <td><?= $good['name']; ?></td>
+            <td><?= $good['stock']; ?></td>
+            <td><?= ($good['sh'] == 1) ? "上架" : "下架"; ?></td>
+            <td style="width:120px">
+                <button onclick="location.href='?do=edit_goods&id=<?= $good['id']; ?>'">修改</button>
+                <button onclick="del('goods',<?= $good['id']; ?>)">刪除</button>
+                <button onclick="sh(1,<?= $good['id']; ?>)">上架</button>
+                <button onclick="sh(0,<?= $good['id']; ?>)">下架</button>
+            </td>
+        </tr>
+    <?php
+    }
+    ?>
 </table>
