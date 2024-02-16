@@ -8,7 +8,7 @@ if(!empty($_POST)){
 <table class="all">
     <tr>
         <td class="ct tt">頁尾宣告內容</td>
-        <td class="pp"><input type="text" name="bot" value="<?=$Bot->find(1)['bot']?>" style="width:80%"></td>
+        <td class="pp"><input type="text" name="bot" value="<?=$Bot->find(1)['bottom']?>" style="width:80%"></td>
     </tr>
 </table>
 <div class="ct">

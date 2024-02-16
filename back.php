@@ -47,7 +47,7 @@ if(!isset($_SESSION['admin'])){
 		?>
         	        </div>
         <div id="bottom" style="line-height:70px; color:#FFF; background:url(./icon/bot.png);" class="ct">
-		<?=$Bot->find(1)['bot']?>       </div>
+		<?=$Bot->find(1)['bottom']?>       </div>
     </div>
 
 </body></html>
