@@ -80,7 +80,7 @@ include_once "./api/db.php";
                     00005 </div>
             </span>
         </div>
-        <div id="right">
+        <div id="right" style="overflow:auto;">
             <?php
             $do = $_GET['do'] ?? "main";
             $file = "./front/{$do}.php";

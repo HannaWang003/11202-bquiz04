@@ -5,6 +5,7 @@
     }
 </style>
 <h1 class="ct">新增商品</h1>
+<form id="addGoods">
 <table class='all'>
     <tr>
         <td class="ct tt">所屬大分類</td>
@@ -47,9 +48,16 @@
         <td class="pp"><textarea name="intro" id="" cols="30" rows="10"></textarea></td>
     </tr>
 </table>
+<div class="ct">
+    <input type="submit" value="新增">
+    <input type="reset" value="重置">
+    <input type="button" value="返回">
+</div>
+</form>
 <script>
     let Big = $('#big');
     let Mid = $('#mid');
+    let addGoods = $('#addGoods');
     function getBig(){
         $.ajax({
             type:'post',
@@ -96,4 +104,21 @@ Mid.html(html);
 }
     getBig();
     Big.on('change',getMid);
+
+addGoods.submit(function(event){
+    event.preventDefault();
+    let addData = new FormData(this);
+    $.ajax({
+        type:'post',
+        url:'./api/save_goods.php',
+        data:addData,
+        processData:false,
+        contentType:false,
+        success:function(res){
+            console.log(res)
+            $('body').load('?do=th');
+        }
+
+    })
+})
 </script>
