@@ -144,7 +144,7 @@ $.ajax({
         <td class="pp">${good.stock}</td>
         <td class="pp">${(good.sh==1)?'上架':'下架'}</td>
         <td class="pp" style="min-width:120px">
-            <button>修改</button><button>刪除</button><button>上架</button><button>下架</button></td>
+            <button>修改</button><button onclick='del(this,"Goods",${good.id})'>刪除</button><button>上架</button><button>下架</button></td>
     </tr>
                     `
                 })
