@@ -112,17 +112,22 @@ include_once "./api/db.php";
                 let html = '';
                 $.each(bigs, (key, big) => {
                     html += `
-<a data-id='${big.id}'>${big.name}</a>
+<a class='big' data-id='${big.id}'>${big.name}</a>
+<div></div>
 `
                 })
                 menu.html(html)
 
             }
         })
-        menu.on('mouseenter', 'a', function() {
+        menu.on({
+            'mouseenter':function(){
             // console.log($(this).data('id'))
             let nowitem = $(this);
             let big_id = $(this).data('id');
+            // console.log($(this).next('div'));
+menu.find('div').hide();
+nowitem.next('div').show();
             $.ajax({
                 type: 'post',
                 data: {
@@ -135,16 +140,17 @@ include_once "./api/db.php";
                     // console.log(mid)
                     let html = '';
                     $.each(mid, function(key, val) {
-                        html += `<a>${val.name}</a>`;
+                        html += `<a class='mid' style="background:lightgreen;width:80%;margin:5px 0px 5px auto">${val.name}</a>`;
                     })
-                    nowitem.html(html);
+                    nowitem.next('div').html(html);
                 }
 
             })
-
-        }).on('mouseleave', 'a', function() {
-            console.log(this)
-        })
+    },
+},'.big').on('mouseleave',function(){
+    $(this).find('div').hide();
+})
+        
     })
     </script>
 </body>
