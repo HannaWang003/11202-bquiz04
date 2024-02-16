@@ -121,7 +121,7 @@ class DB
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 }
-$Bot = new DB('bot');
+$Bot = new DB('bottom');
 $Admin = new DB('admin');
 $Mem = new DB('mem');
 $Type = new DB('type');

@@ -69,6 +69,9 @@ include_once "./api/db.php";
         <div id="left" class="ct">
             <div style="min-height:400px;">
                 <a href="">全部商品</a>
+                <div id=menu>
+                    <!-- ajax -->
+                </div>
             </div>
             <span>
                 <div>進站總人數</div>
@@ -90,9 +93,33 @@ include_once "./api/db.php";
 
         </div>
         <div id="bottom" style="line-height:70px;background:url(./icon/bot.png); color:#FFF;" class="ct">
-            <?= $Bot->find(1)['bot'] ?> </div>
+            <?= $Bot->find(1)['bottom'] ?> </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            let menu = $('#menu')
+            $.ajax({
+                type: 'post',
+                data: {
+                    'table': 'Type',
+                    'big_id': 0,
+                },
+                dataType: 'json',
+                url: './api/get.php',
+                success: function(bigs) {
+                    console.log(bigs);
+                    let html = '';
+                    $.each(bigs, (key, big) => {
+                        html += `
+<a href="">${big.name}</a>
+`
+                    })
+                    menu.html(html)
 
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>
