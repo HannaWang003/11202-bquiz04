@@ -1,7 +1,8 @@
 <?php
 include_once "./api/db.php";
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0039) -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -14,18 +15,18 @@ include_once "./api/db.php";
     <script src="./js/jquery-1.9.1.min.js"></script>
 </head>
 <style>
-    #top {
-        display: flex;
-        justify-content: space-between;
+#top {
+    display: flex;
+    justify-content: space-between;
 
-        a {
-            width: 50%;
-        }
-
-        img {
-            width: 100%;
-        }
+    a {
+        width: 50%;
     }
+
+    img {
+        width: 100%;
+    }
+}
 </style>
 
 <body>
@@ -43,11 +44,11 @@ include_once "./api/db.php";
                 <?php
                 if (isset($_SESSION['mem'])) {
                 ?>
-                    <a onclick="logout('mem')">登出</a>
+                <a onclick="logout('mem')">登出</a>
                 <?php
                 } else {
                 ?>
-                    <a href="?do=login">會員登入</a>
+                <a href="?do=login">會員登入</a>
                 <?php
                 }
                 ?>
@@ -55,11 +56,11 @@ include_once "./api/db.php";
                 <?php
                 if (isset($_SESSION['admin'])) {
                 ?>
-                    <a href="back.php">回管理頁</a>
+                <a href="back.php">回管理頁</a>
                 <?php
                 } else {
                 ?>
-                    <a href="?do=admin">管理登入</a>
+                <a href="?do=admin">管理登入</a>
                 <?php
                 }
                 ?>
@@ -68,6 +69,7 @@ include_once "./api/db.php";
         <marquee>情人節特惠活動 &nbsp; 為了慶祝七夕情人節，將舉辦情人兩人到現場有七七折之特惠活動~</marquee>
         <div id="left" class="ct">
             <div style="min-height:400px;">
+                <a href="">全部商品</a>
             </div>
             <span>
                 <div>進站總人數</div>
