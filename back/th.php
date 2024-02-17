@@ -137,6 +137,18 @@ $.ajax({
             }
         })
     }
+    function editgoods(id){
+        $.ajax({
+            type:'get',
+            data:{
+                id
+            },
+            url:'./back/edit_goods.php',
+            success:function(res){
+                $('#right').html(res)
+            }
+        })
+    }
     $('document').ready(function(){
         let PM = $('#PM');
         let PMadd = $('#PMadd');
@@ -159,7 +171,7 @@ $.ajax({
         <td class="pp">${good.stock}</td>
         <td class="pp shsw">${(good.sh==1)?'上架':'下架'}</td>
         <td class="pp" style="min-width:120px">
-            <button>修改</button>
+            <button onclick = 'editgoods(${good.id})'>修改</button>
             <button onclick='del(this,"Goods",${good.id})'>刪除</button>
             <button onclick='sh(this,"1",${good.id})'>上架</button>
             <button onclick='sh(this,"0",${good.id})'>下架</button></td>
