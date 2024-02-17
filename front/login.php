@@ -1,5 +1,5 @@
 <h2>第一次購物</h2>
-<div><input type="button" onclick="reg()" value="按此註冊"></div>
+<div><img src="./icon/0413.jpg" onclick="reg()"></div>
 <h2>會員登入</h2>
 <form id="chkacc">
 <table class="all">
